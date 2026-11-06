@@ -1,0 +1,17 @@
+{
+    "medicines": [
+        {
+            "id": 1,
+            "brandName": "Example Brand",
+            "genericName": "Paracetamol",
+            "salt": "Paracetamol",
+            "strength": "500 mg",
+            "form": "Tablet",
+            "brandPrice": null,
+            "genericPrice": null,
+            "priceSource": null,
+            "lastUpdated": null
+        }
+    ],
+    "currency": "INR"
+}
