@@ -1,0 +1,60 @@
+
+/* ==============================
+   1. CSS RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   2. ROOT VARIABLES
+================================= */
+
+:root {
+    --primary-color: #16845b;
+    --secondary-color: #e8f5ee;
+    --background-color: #f7faf8;
+    --text-color: #202b25;
+    --muted-color: #68766e;
+    --white-color: #ffffff;
+
+    --border-color: #dce6df;
+
+    --font-family: Arial, sans-serif;
+}
+
+/* ==============================
+   3. BODY STYLING
+================================= */
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ==============================
+   4. GENERAL ELEMENTS
+================================= */
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

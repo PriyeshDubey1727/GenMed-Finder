@@ -1,0 +1,110 @@
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+/* Tablets */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+}
+
+/* Mobile Devices */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 9px 16px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+}
+
+/* ==============================
+   TABLET RESPONSIVENESS
+================================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+
+    #header .container {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    /* Hero Section */
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-search {
+        flex-direction: column;
+    }
+
+    /* Services */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+================================= */
+
+@media (max-width: 480px) {
+
+    /* Header */
+
+    #header .container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /* Hero Section */
+
+    .hero-section {
+        padding: 55px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+    /* Services */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+}
