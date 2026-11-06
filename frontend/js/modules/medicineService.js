@@ -31,6 +31,7 @@ export async function loadMedicines() {
 }
 // Search medicines by brand name, generic name or salt
 
+
 export function searchMedicines(medicines, searchText) {
 
     const searchValue = searchText.toLowerCase().trim();
@@ -41,10 +42,14 @@ export function searchMedicines(medicines, searchText) {
 
     const results = medicines.filter(function (medicine) {
 
+        const brandName = (medicine.brandName || "").toLowerCase();
+        const genericName = (medicine.genericName || "").toLowerCase();
+        const salt = (medicine.salt || "").toLowerCase();
+
         return (
-            medicine.brandName.toLowerCase().includes(searchValue) ||
-            medicine.genericName.toLowerCase().includes(searchValue) ||
-            medicine.salt.toLowerCase().includes(searchValue)
+            brandName.includes(searchValue) ||
+            genericName.includes(searchValue) ||
+            salt.includes(searchValue)
         );
 
     });

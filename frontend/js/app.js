@@ -56,13 +56,22 @@ function handleMedicineSearch() {
 
     const searchInput = document.getElementById("medicine-search");
 
-    const searchText = searchInput.value;
+    const searchText = searchInput.value.trim();
+
+    if (searchText === "") {
+
+        const resultsContainer = document.getElementById("medicine-results");
+
+        resultsContainer.innerHTML = "";
+        resultsContainer.textContent = "Please enter a medicine name to search.";
+
+        return;
+    }
 
     const results = searchMedicines(medicines, searchText);
 
     displayMedicines(results);
 }
-
 // Initialize application
 
 async function initializeApp() {
@@ -76,6 +85,15 @@ async function initializeApp() {
     const searchButton = document.getElementById("search-medicine-btn");
 
     searchButton.addEventListener("click", handleMedicineSearch);
+    const searchInput = document.getElementById("medicine-search");
+
+searchInput.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+        handleMedicineSearch();
+    }
+
+});
 
 }
 
