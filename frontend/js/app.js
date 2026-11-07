@@ -1,4 +1,4 @@
-
+import { calculateSavings } from "./modules/priceService.js";
 import {
     loadMedicines,
     searchMedicines
@@ -40,11 +40,47 @@ function displayMedicines(results) {
         const form = document.createElement("p");
         form.textContent = "Form: " + medicine.form;
 
+        const brandPrice = document.createElement("p");
+
+if (typeof medicine.brandPrice === "number") {
+    brandPrice.textContent = "Branded Price: ₹" + medicine.brandPrice;
+} else {
+    brandPrice.textContent = "Branded Price: Unavailable";
+}
+const genericPrice = document.createElement("p");
+
+if (typeof medicine.genericPrice === "number") {
+    genericPrice.textContent = "Generic Price: ₹" + medicine.genericPrice;
+} else {
+    genericPrice.textContent = "Generic Price: Unavailable";
+}
+
+        const savings = calculateSavings(
+            medicine.brandPrice,
+            medicine.genericPrice
+        );
+
+        const savingsInfo = document.createElement("p");
+
+        if (savings !== null) {
+
+            savingsInfo.textContent =
+                "You Save: ₹" + savings.savings +
+                " (" + savings.savingsPercentage + "%)";
+
+        } else {
+
+            savingsInfo.textContent = "Price comparison unavailable.";
+
+        }
+
         card.appendChild(name);
         card.appendChild(generic);
         card.appendChild(strength);
         card.appendChild(form);
-
+        card.appendChild(brandPrice);
+        card.appendChild(genericPrice);
+        card.appendChild(savingsInfo);
         resultsContainer.appendChild(card);
 
     });
@@ -81,19 +117,20 @@ async function initializeApp() {
     medicines = await loadMedicines();
 
     console.log("Medicines loaded:", medicines);
+   
 
     const searchButton = document.getElementById("search-medicine-btn");
 
     searchButton.addEventListener("click", handleMedicineSearch);
     const searchInput = document.getElementById("medicine-search");
 
-searchInput.addEventListener("keydown", function (event) {
+    searchInput.addEventListener("keydown", function (event) {
 
-    if (event.key === "Enter") {
-        handleMedicineSearch();
-    }
+        if (event.key === "Enter") {
+            handleMedicineSearch();
+        }
 
-});
+    });
 
 }
 
