@@ -1,0 +1,13 @@
+{
+    "kendras": [
+        {
+            "id": 1,
+            "name": "Test Kendra (Demo)",
+            "storeCode": "DEMO-001",
+            "address": "Demo address - not a real location",
+            "district": "Demo District",
+            "state": "Demo State",
+            "pincode": "000000"
+        }
+    ]
+}
