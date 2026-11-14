@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +14,8 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -71,18 +72,10 @@
                     <!-- Medicine Search -->
                     <div class="hero-search">
 
-                        <input
-                            type="text"
-                            id="medicine-search"
-                            class="form-input"
-                            placeholder="Enter medicine name or salt..."
-                        >
+                        <input type="text" id="medicine-search" class="form-input"
+                            placeholder="Enter medicine name or salt...">
 
-                        <button
-                            type="button"
-                            id="search-medicine-btn"
-                            class="btn"
-                        >
+                        <button type="button" id="search-medicine-btn" class="btn">
                             Search Medicines
                         </button>
 
@@ -161,33 +154,18 @@
                 <!-- Kendra Search -->
                 <div class="kendra-search">
 
-                    <input
-                        type="text"
-                        id="kendra-search-input"
-                        class="form-input"
-                        placeholder="Enter pincode, district or state..."
-                    >
+                    <input type="text" id="kendra-search-input" class="form-input"
+                        placeholder="Enter pincode, district or state...">
 
-                    <button
-                        type="button"
-                        id="search-kendra-btn"
-                        class="btn"
-                    >
+                    <button type="button" id="search-kendra-btn" class="btn">
                         Search Kendras
                     </button>
 
-                    <button
-                        type="button"
-                        id="use-location-btn"
-                        class="btn"
-                    >
+                    <button type="button" id="use-location-btn" class="btn">
                         Use My Location
                     </button>
 
-                    <select
-                        id="distance-filter"
-                        class="form-input"
-                    >
+                    <select id="distance-filter" class="form-input">
                         <option value="5">Within 5 km</option>
                         <option value="10" selected>Within 10 km</option>
                         <option value="25">Within 25 km</option>
@@ -197,9 +175,9 @@
                 </div>
 
                 <!-- Kendra Search Results -->
-                 <p id="location-status" class="location-status"></p>
+                <p id="location-status" class="location-status"></p>
                 <div id="kendra-results" class="kendra-results"></div>
-
+                <div id="kendra-map" class="kendra-map"></div>
             </div>
 
         </section>
@@ -213,6 +191,8 @@
 
     <!-- JavaScript Entry Point -->
     <script type="module" src="js/app.js"></script>
+    <!-- Leaflet Map JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </body>
 

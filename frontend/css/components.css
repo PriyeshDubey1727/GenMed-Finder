@@ -309,3 +309,12 @@
     font-size: 14px;
     min-height: 22px;
 }
+.kendra-map {
+    width: 100%;
+    height: 400px;
+    margin-top: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    z-index: 1;
+}

@@ -1,4 +1,9 @@
 import {
+    initializeMap,
+    addKendraMarkers,
+    addUserMarker
+} from "./modules/mapService.js";
+import {
     loadKendras,
     searchKendras,
     calculateDistance,
@@ -228,6 +233,8 @@ async function initializeApp() {
 
                 const userLatitude = position.coords.latitude;
                 const userLongitude = position.coords.longitude;
+                initializeMap(userLatitude, userLongitude);
+                addUserMarker(userLatitude, userLongitude);
 
                 const distanceFilter = document.getElementById("distance-filter");
                 const maxDistance = Number(distanceFilter.value);
@@ -240,6 +247,7 @@ async function initializeApp() {
                 );
 
                 displayKendras(nearbyKendras);
+                addKendraMarkers(nearbyKendras);
                 if (nearbyKendras.length === 0) {
                     locationStatus.textContent =
                         "No Kendras found within the selected distance.";
