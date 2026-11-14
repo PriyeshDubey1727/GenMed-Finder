@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
 
     <title>GenMed Finder | Affordable Medicines</title>
 
-    <!-- Main Stylesheet -->
+    <!-- Main Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -19,44 +20,23 @@
 <body>
 
     <!-- Website Header -->
-
     <header id="header">
 
         <div class="container">
 
-            <!-- Website Logo -->
             <div class="logo">
-                <a href="index.html">
-                    GenMed Finder
-                </a>
+                <a href="index.html">GenMed Finder</a>
             </div>
 
-            <!-- Navigation Links -->
             <nav class="navbar">
-
                 <ul class="nav-links">
-
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="#medicines">Find Medicines</a>
-                    </li>
-
-                    <li>
-                        <a href="#kendra">Find Kendras</a>
-                    </li>
-
-                    <li>
-                        <a href="pages/whygeneric.html">Why Generic?</a>
-                    </li>
-
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#medicines">Find Medicines</a></li>
+                    <li><a href="#kendra">Find Kendras</a></li>
+                    <li><a href="pages/whygeneric.html">Why Generic?</a></li>
                 </ul>
-
             </nav>
 
-            <!-- Language Selector -->
             <div class="language-selector">
                 <button id="language-toggle" class="btn">
                     English
@@ -67,9 +47,7 @@
 
     </header>
 
-
     <!-- Main Content -->
-
     <main id="main-content">
 
         <!-- Hero Section -->
@@ -93,10 +71,18 @@
                     <!-- Medicine Search -->
                     <div class="hero-search">
 
-                        <input type="text" id="medicine-search" class="form-input"
-                            placeholder="Enter medicine name or salt...">
+                        <input
+                            type="text"
+                            id="medicine-search"
+                            class="form-input"
+                            placeholder="Enter medicine name or salt..."
+                        >
 
-                        <button type="button" id="search-medicine-btn" class="btn">
+                        <button
+                            type="button"
+                            id="search-medicine-btn"
+                            class="btn"
+                        >
                             Search Medicines
                         </button>
 
@@ -105,6 +91,7 @@
                     <p class="hero-note">
                         Compare prices and explore affordable alternatives.
                     </p>
+
                     <div id="medicine-results" class="medicine-results"></div>
 
                 </div>
@@ -113,90 +100,111 @@
 
         </section>
 
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>What Can You Find?</h2>
+                    <p>
+                        Everything you need to make informed
+                        and affordable medicine choices.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+
+                    <div class="card service-card">
+                        <h3>Find Medicines</h3>
+                        <p>
+                            Search medicines by brand name or
+                            salt and discover matching generic alternatives.
+                        </p>
+                    </div>
+
+                    <div class="card service-card">
+                        <h3>Compare Prices</h3>
+                        <p>
+                            Compare branded and generic medicine
+                            prices and calculate potential savings.
+                        </p>
+                    </div>
+
+                    <div class="card service-card">
+                        <h3>Find Jan Aushadhi Kendras</h3>
+                        <p>
+                            Find nearby Jan Aushadhi Kendras
+                            using your location or pincode.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Find Jan Aushadhi Kendras -->
+        <section id="kendra" class="kendra-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Find Nearby Jan Aushadhi Kendras</h2>
+                    <p>
+                        Search for Kendras using your pincode,
+                        district or state.
+                    </p>
+                </div>
+
+                <!-- Kendra Search -->
+                <div class="kendra-search">
+
+                    <input
+                        type="text"
+                        id="kendra-search-input"
+                        class="form-input"
+                        placeholder="Enter pincode, district or state..."
+                    >
+
+                    <button
+                        type="button"
+                        id="search-kendra-btn"
+                        class="btn"
+                    >
+                        Search Kendras
+                    </button>
+
+                    <button
+                        type="button"
+                        id="use-location-btn"
+                        class="btn"
+                    >
+                        Use My Location
+                    </button>
+
+                    <select
+                        id="distance-filter"
+                        class="form-input"
+                    >
+                        <option value="5">Within 5 km</option>
+                        <option value="10" selected>Within 10 km</option>
+                        <option value="25">Within 25 km</option>
+                        <option value="50">Within 50 km</option>
+                    </select>
+
+                </div>
+
+                <!-- Kendra Search Results -->
+                 <p id="location-status" class="location-status"></p>
+                <div id="kendra-results" class="kendra-results"></div>
+
+            </div>
+
+        </section>
+
     </main>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-                <h2>What Can You Find?</h2>
-                <p>
-                    Everything you need to make informed
-                    and affordable medicine choices.
-                </p>
-            </div>
-
-            <div class="services-grid">
-
-                <!-- Service 1 -->
-                <div class="card service-card">
-                    <h3>Find Medicines</h3>
-                    <p>
-                        Search medicines by brand name or
-                        salt and discover matching generic alternatives.
-                    </p>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="card service-card">
-                    <h3>Compare Prices</h3>
-                    <p>
-                        Compare branded and generic medicine
-                        prices and calculate potential savings.
-                    </p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="card service-card">
-                    <h3>Find Jan Aushadhi Kendras</h3>
-                    <p>
-                        Find nearby Jan Aushadhi Kendras
-                        using your location or pincode.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-<!-- FIND JAN AUSHADHI KENDRAS -->
-
-<section id="kendra" class="kendra-section">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>Find Nearby Jan Aushadhi Kendras</h2>
-            <p>Search for Kendras using your pincode, district or state.</p>
-        </div>
-
-        <div class="kendra-search">
-
-            <input
-                type="text"
-                id="kendra-search-input"
-                class="form-input"
-                placeholder="Enter pincode, district or state..."
-            >
-
-            <button
-                type="button"
-                id="search-kendra-btn"
-                class="btn"
-            >
-                Search Kendras
-            </button>
-
-        </div>
-
-        <div id="kendra-results" class="kendra-results"></div>
-
-    </div>
-
-</section> 
 
     <!-- Website Footer -->
     <footer id="footer">

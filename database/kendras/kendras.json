@@ -7,7 +7,10 @@
             "address": "Demo address - not a real location",
             "district": "Demo District",
             "state": "Demo State",
-            "pincode": "000000"
+            "pincode": "000000",
+            "latitude": 26.4499,
+            "longitude": 80.3319,
+            "phone": null
         }
     ]
 }

@@ -56,3 +56,73 @@ export function searchKendras(kendras, searchText) {
 
     return results;
 }
+
+/* =================================
+   DISTANCE CALCULATION
+==================================== */
+
+// Calculate distance between two geographical points
+
+export function calculateDistance(lat1, lon1, lat2, lon2) {
+
+    const earthRadius = 6371;
+
+    const latitudeDifference = (lat2 - lat1) * Math.PI / 180;
+    const longitudeDifference = (lon2 - lon1) * Math.PI / 180;
+
+    const a =
+        Math.sin(latitudeDifference / 2) *
+        Math.sin(latitudeDifference / 2) +
+        Math.cos(lat1 * Math.PI / 180) *
+        Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(longitudeDifference / 2) *
+        Math.sin(longitudeDifference / 2);
+
+    const centralAngle = 2 * Math.atan2(
+        Math.sqrt(a),
+        Math.sqrt(1 - a)
+    );
+
+    const distance = earthRadius * centralAngle;
+
+    return Number(distance.toFixed(2));
+
+}
+export function findNearbyKendras(
+    kendras,
+    userLatitude,
+    userLongitude,
+    maxDistance = 10
+) {
+    const nearbyKendras = [];
+
+    kendras.forEach(function (kendra) {
+        if (
+            typeof kendra.latitude !== "number" ||
+            typeof kendra.longitude !== "number"
+        ) {
+            return;
+        }
+
+        const distance = calculateDistance(
+            userLatitude,
+            userLongitude,
+            kendra.latitude,
+            kendra.longitude
+        );
+
+        const nearbyKendra = {
+            ...kendra,
+            distance: distance
+        };
+        if (distance <= maxDistance) {
+            nearbyKendras.push(nearbyKendra);
+        }
+    });
+
+    nearbyKendras.sort(function (a, b) {
+        return a.distance - b.distance;
+    });
+
+    return nearbyKendras;
+}

@@ -270,6 +270,7 @@
     gap: 12px;
     max-width: 700px;
     margin: 25px auto;
+    flex-wrap: wrap;
 }
 
 .kendra-search .form-input {
@@ -300,4 +301,11 @@
     color: var(--muted-color);
     margin-bottom: 6px;
     font-size: 14px;
+}
+.location-status {
+    text-align: center;
+    margin-top: 15px;
+    color: var(--muted-color);
+    font-size: 14px;
+    min-height: 22px;
 }

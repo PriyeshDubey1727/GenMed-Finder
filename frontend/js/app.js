@@ -1,6 +1,8 @@
 import {
     loadKendras,
-    searchKendras
+    searchKendras,
+    calculateDistance,
+    findNearbyKendras
 } from "./modules/kendraService.js";
 import { calculateSavings } from "./modules/priceService.js";
 import {
@@ -150,6 +152,11 @@ function displayKendras(results) {
 
         const pincode = document.createElement("p");
         pincode.textContent = "Pincode: " + (kendra.pincode || "Unavailable");
+        if (typeof kendra.distance === "number") {
+            const distance = document.createElement("p");
+            distance.textContent = "Distance: " + kendra.distance + " km";
+            card.appendChild(distance);
+        }
 
         card.appendChild(name);
         card.appendChild(storeCode);
@@ -196,6 +203,7 @@ async function initializeApp() {
 
     console.log("Medicines loaded:", medicines);
 
+
     kendras = await loadKendras();
 
     console.log("Kendras loaded:", kendras);
@@ -203,6 +211,62 @@ async function initializeApp() {
 
     searchButton.addEventListener("click", handleMedicineSearch);
     const kendraSearchButton = document.getElementById("search-kendra-btn");
+    const locationButton = document.getElementById("use-location-btn");
+
+    locationButton.addEventListener("click", function () {
+
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser.");
+            return;
+        }
+
+        locationButton.textContent = "Getting Location...";
+        const locationStatus = document.getElementById("location-status");
+        locationStatus.textContent = "Getting your location...";
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+
+                const userLatitude = position.coords.latitude;
+                const userLongitude = position.coords.longitude;
+
+                const distanceFilter = document.getElementById("distance-filter");
+                const maxDistance = Number(distanceFilter.value);
+
+                const nearbyKendras = findNearbyKendras(
+                    kendras,
+                    userLatitude,
+                    userLongitude,
+                    maxDistance
+                );
+
+                displayKendras(nearbyKendras);
+                if (nearbyKendras.length === 0) {
+                    locationStatus.textContent =
+                        "No Kendras found within the selected distance.";
+                } else {
+                    locationStatus.textContent =
+                        nearbyKendras.length + " Kendra(s) found nearby.";
+                }
+
+                locationButton.textContent = "Use My Location";
+            },
+
+            function (error) {
+                if (error.code === error.PERMISSION_DENIED) {
+                    locationStatus.textContent = "Location access denied. Please allow location permission.";
+                } else if (error.code === error.POSITION_UNAVAILABLE) {
+                    locationStatus.textContent = "Your location is currently unavailable.";
+                } else if (error.code === error.TIMEOUT) {
+                    locationStatus.textContent = "Location request timed out. Please try again.";
+                } else {
+                    locationStatus.textContent = "Unable to retrieve your location.";
+                }
+
+                locationButton.textContent = "Use My Location";
+            }
+        );
+
+    });
 
     kendraSearchButton.addEventListener("click", handleKendraSearch);
     const searchInput = document.getElementById("medicine-search");
